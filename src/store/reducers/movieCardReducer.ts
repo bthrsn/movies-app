@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IMovieCard } from "../../models";
 
+
+
 const initialState = {
-  data: new Array<IMovieCard>(),
+  data: {} as IMovieCard,
   isLoading: false,
   error: null,
 };

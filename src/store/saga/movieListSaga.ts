@@ -1,12 +1,12 @@
 import axios from "axios";
 import { call, put, takeLatest } from "@redux-saga/core/effects";
 import {
-  fetchMovieList,
-  setMovieList,
   getmovieListError,
-} from "../store/reducers/movieListReducer";
+  setMovieList,
+  startMovieListFetch,
+} from "../reducers/movieListSlice";
 
-function* fetchMovieListWorker(action: any) {
+function* startMovieListFetchWorker(action: any) {
 
   try {
     const { data } = yield call(axios.get, action.payload);
@@ -17,5 +17,5 @@ function* fetchMovieListWorker(action: any) {
 }
 
 export function* watchMovieList() {
-  yield takeLatest(fetchMovieList.type, fetchMovieListWorker);
+  yield takeLatest(startMovieListFetch.type, startMovieListFetchWorker);
 }

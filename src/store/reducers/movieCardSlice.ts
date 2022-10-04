@@ -1,19 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IMovieCard } from "../../models";
 
+type MovieCardInitialState = {
+  data: IMovieCard,
+  isLoading: boolean,
+  error: string
+}
 
-
-const initialState = {
+const initialState: MovieCardInitialState  = {
   data: {} as IMovieCard,
   isLoading: false,
-  error: null,
+  error: "",
 };
 
 export const movieCardSlice = createSlice({
   name: "movieCard",
   initialState: initialState,
   reducers: {
-    fetchMovieCard: (state, action) => {
+    startMovieCardFetch: (state, action) => {
       state.isLoading = true;
     },
     setMovieCard: (state, action) => {
@@ -27,6 +31,6 @@ export const movieCardSlice = createSlice({
   },
 });
 
-export const { fetchMovieCard, setMovieCard, getMovieCardError } =
+export const { startMovieCardFetch, setMovieCard, getMovieCardError } =
 movieCardSlice.actions;
 

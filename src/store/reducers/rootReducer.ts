@@ -1,6 +1,6 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import { movieListSlice } from "./movieListReducer"
-import { movieCardSlice } from "./movieCardReducer"
+import { movieListSlice } from "./movieListSlice"
+import { movieCardSlice } from "./movieCardSlice"
 
 export const rootReducer = combineReducers({
   movieList: movieListSlice.reducer,

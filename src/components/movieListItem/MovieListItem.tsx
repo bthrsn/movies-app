@@ -1,7 +1,7 @@
+import * as React from "react";
 import { Link } from "react-router-dom";
-import { BASE_IMG_URL, IMG_SIZE } from "../constants/global";
-import { IMovie } from "../models";
-
+import { BASE_IMG_URL, IMG_SIZE } from "constants/global";
+import { IMovie } from "models";
 
 export const MovieListItem = ({ movie }: { movie: IMovie }) => {
   const { id, title, poster_path } = movie;
@@ -9,10 +9,7 @@ export const MovieListItem = ({ movie }: { movie: IMovie }) => {
   const posterPath = `${BASE_IMG_URL}${IMG_SIZE}${poster_path}`;
 
   return (
-    <Link
-      to={`/movie/${movieId}`}
-      className="group relative"
-    >
+    <Link to={`/movie/${movieId}`} className="group relative">
       <div className="min-h-80 w-full overflow-hidden rounded-md group-hover:opacity-75">
         <img
           src={posterPath}

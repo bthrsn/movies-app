@@ -1,4 +1,4 @@
-export interface ServerResponse {
+export interface IServerResponse {
   page: number;
   results: IMovie[];
   total_pages: number;
@@ -8,7 +8,7 @@ export interface ServerResponse {
 export interface IMovie {
   adult: boolean;
   backdrop_path: string;
-  genre_ids: number[];
+  IGenre_ids: number[];
   id: number;
   original_language: string;
   original_title: string;
@@ -22,24 +22,24 @@ export interface IMovie {
   vote_count: number;
 }
 
-export interface Genre {
+export interface IGenre {
   id: number;
   name: string;
 }
 
-export interface ProductionCompany {
+export interface IProductionCompany {
   id: number;
   logo_path: string;
   name: string;
   origin_country: string;
 }
 
-export interface ProductionCountry {
+export interface IProductionCountry {
   iso_3166_1: string;
   name: string;
 }
 
-export interface SpokenLanguage {
+export interface ISpokenLanguage {
   english_name: string;
   iso_639_1: string;
   name: string;
@@ -50,7 +50,7 @@ export interface IMovieCard {
   backdrop_path: string;
   belongs_to_collection?: any;
   budget: number;
-  genres: Genre[];
+  IGenres: IGenre[];
   homepage: string;
   id: number;
   imdb_id: string;
@@ -59,12 +59,12 @@ export interface IMovieCard {
   overview: string;
   popularity: number;
   poster_path: string;
-  production_companies: ProductionCompany[];
-  production_countries: ProductionCountry[];
+  production_companies: IProductionCompany[];
+  production_countries: IProductionCountry[];
   release_date: string;
   revenue: number;
   runtime: number;
-  spoken_languages: SpokenLanguage[];
+  spoken_languages: ISpokenLanguage[];
   status: string;
   tagline: string;
   title: string;

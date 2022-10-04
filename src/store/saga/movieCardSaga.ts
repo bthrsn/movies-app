@@ -2,12 +2,12 @@ import axios from "axios";
 import { call, put, takeLatest } from "@redux-saga/core/effects";
 
 import {
-  fetchMovieCard,
-  setMovieCard,
   getMovieCardError,
-} from "../store/reducers/movieCardReducer";
+  setMovieCard,
+  startMovieCardFetch,
+} from "../reducers/movieCardSlice";
 
-function* fetchMovieCardWorker(action: any) {
+function* startMovieCardFetchWorker(action: any) {
   try {
     const { data } = yield call(axios.get, action.payload);
     yield put(setMovieCard({ data }));
@@ -16,5 +16,5 @@ function* fetchMovieCardWorker(action: any) {
   }
 }
 export function* watchMovieCard() {
-  yield takeLatest(fetchMovieCard.type, fetchMovieCardWorker);
+  yield takeLatest(startMovieCardFetch.type, startMovieCardFetchWorker);
 }

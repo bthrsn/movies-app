@@ -1,18 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IMovie } from "../../models";
 
+type MovieListInitialState = {
+  data: IMovie[];
+  isLoading: boolean;
+  error: string;
+};
 
-const initialState = {
-  data: new Array<IMovie>(),
+const initialState: MovieListInitialState = {
+  data: [],
   isLoading: false,
-  error: '',
+  error: "",
 };
 
 export const movieListSlice = createSlice({
   name: "movieList",
   initialState: initialState,
   reducers: {
-    fetchMovieList: (state, action) => {
+    startMovieListFetch: (state, action) => {
       state.isLoading = true;
     },
     setMovieList: (state, action) => {
@@ -26,10 +31,5 @@ export const movieListSlice = createSlice({
   },
 });
 
-export const {
-  fetchMovieList,
-  setMovieList,
-  getmovieListError
-} = movieListSlice.actions;
-
-
+export const { startMovieListFetch, setMovieList, getmovieListError } =
+  movieListSlice.actions;

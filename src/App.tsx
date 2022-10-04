@@ -1,6 +1,7 @@
+import * as React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { HomePage } from "./pages/HomePage";
-import { MovieDetailsPage } from "./pages/MovieDetailsPage";
+import { HomePage } from "./pages/homePage/HomePage";
+import { MovieDetailsPage } from "./pages/movieDetailPage/MovieDetailsPage";
 
 function App() {
   return (

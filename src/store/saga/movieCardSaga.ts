@@ -1,4 +1,3 @@
-import axios from "axios";
 import { call, put, takeLatest } from "@redux-saga/core/effects";
 
 import {
@@ -6,13 +5,19 @@ import {
   setMovieCard,
   startMovieCardFetch,
 } from "../reducers/movieCardSlice";
+import { IMovieCard } from "models";
+import { fetchMovieCard } from "api";
+import { PayloadAction } from "@reduxjs/toolkit";
 
-function* startMovieCardFetchWorker(action: any) {
+function* startMovieCardFetchWorker(action: { payload: string; type: PayloadAction<string> }) {
   try {
-    const { data } = yield call(axios.get, action.payload);
-    yield put(setMovieCard({ data }));
-  } catch (error: any) {
-    yield put(getMovieCardError({ error: error.message }));
+    const data: IMovieCard = yield call(
+      fetchMovieCard,
+      action.payload
+    );
+    yield put(setMovieCard(data));
+  } catch (error: unknown) {
+    yield put(getMovieCardError({ error: error }));
   }
 }
 export function* watchMovieCard() {

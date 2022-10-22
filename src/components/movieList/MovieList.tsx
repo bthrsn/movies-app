@@ -5,15 +5,23 @@ import { startMovieListFetch } from "store/reducers/movieListSlice";
 import { useAppSelector } from "hooks/useAppSelector";
 import { useAppDispatch } from "hooks/useAppDispatch";
 import { BASE_MOVIE_URL, KEY, POPULAR_MOVIES } from "constants/global";
+import ErrorScreen from 'components/errorScreen';
+import LoadingScreen from 'components/loadingScreen';
 
 export const MovieList = () => {
-  const { data } = useAppSelector((state) => state.movieList);
+  const { data, isLoading, error } = useAppSelector((state) => state.movieList);
   const dispatch = useAppDispatch();
   const popularMoviesPath = `${BASE_MOVIE_URL}${POPULAR_MOVIES}${KEY}`;
 
   useEffect(() => {
     dispatch(startMovieListFetch(popularMoviesPath));
   }, [dispatch, popularMoviesPath]);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  } else if (error) {
+    return <ErrorScreen />;
+  }
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:max-w-6xl lg:px-8">

@@ -50,7 +50,7 @@ export interface IMovieCard {
   backdrop_path: string;
   belongs_to_collection?: any;
   budget: number;
-  IGenres: IGenre[];
+  genres: IGenre[];
   homepage: string;
   id: number;
   imdb_id: string;

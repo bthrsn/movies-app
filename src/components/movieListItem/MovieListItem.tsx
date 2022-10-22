@@ -6,13 +6,12 @@ import { IMovie } from "models";
 export const MovieListItem = ({ movie }: { movie: IMovie }) => {
   const { id, title, poster_path } = movie;
   const movieId = id.toString();
-  const posterPath = `${BASE_IMG_URL}${IMG_SIZE}${poster_path}`;
 
   return (
     <Link to={`/movie/${movieId}`} className="group relative">
       <div className="min-h-80 w-full overflow-hidden rounded-md group-hover:opacity-75">
         <img
-          src={posterPath}
+          src={BASE_IMG_URL + IMG_SIZE + poster_path}
           alt={title}
           className="h-full w-full object-cover object-center lg:h-full lg:w-full"
         />

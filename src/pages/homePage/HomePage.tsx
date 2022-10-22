@@ -4,7 +4,7 @@ import MovieList from "components/movieList";
 
 export const HomePage = () => {
   return (
-    <div className="max-h-full max-w-full bg-gray-800 ">
+    <div>
       <Header>
         <h1>TMDB Popular</h1>
       </Header>

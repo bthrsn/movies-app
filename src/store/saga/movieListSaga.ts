@@ -1,18 +1,22 @@
-import axios from "axios";
 import { call, put, takeLatest } from "@redux-saga/core/effects";
 import {
   getmovieListError,
   setMovieList,
   startMovieListFetch,
 } from "../reducers/movieListSlice";
+import { IMovie } from "models";
+import { fetchMovieList } from "api";
+import { PayloadAction } from "@reduxjs/toolkit";
 
-function* startMovieListFetchWorker(action: any) {
-
+function* startMovieListFetchWorker(action: { payload: string; type: PayloadAction<string> }) {
   try {
-    const { data } = yield call(axios.get, action.payload);
-    yield put(setMovieList({ data }));
-  } catch (error: any) {
-    yield put(getmovieListError({ error: error.message }));
+    const data: IMovie[] = yield call(
+      fetchMovieList,
+      action.payload
+    );
+    yield put(setMovieList(data));
+  } catch (error: unknown) {
+    yield put(getmovieListError({ error: error }));
   }
 }
 

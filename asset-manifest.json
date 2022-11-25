@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/bthrsn.github.io/movies-app/static/css/main.f27fe369.css",
-    "main.js": "/bthrsn.github.io/movies-app/static/js/main.73dc9872.js",
-    "index.html": "/bthrsn.github.io/movies-app/index.html",
-    "main.f27fe369.css.map": "/bthrsn.github.io/movies-app/static/css/main.f27fe369.css.map",
-    "main.73dc9872.js.map": "/bthrsn.github.io/movies-app/static/js/main.73dc9872.js.map"
+    "main.css": "/movies-app/static/css/main.f27fe369.css",
+    "main.js": "/movies-app/static/js/main.73dc9872.js",
+    "index.html": "/movies-app/index.html",
+    "main.f27fe369.css.map": "/movies-app/static/css/main.f27fe369.css.map",
+    "main.73dc9872.js.map": "/movies-app/static/js/main.73dc9872.js.map"
   },
   "entrypoints": [
     "static/css/main.f27fe369.css",
